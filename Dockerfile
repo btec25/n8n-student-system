@@ -1,7 +1,7 @@
-# استخدم صورة n8n الرسمية
-FROM n8nio/n8n
+# استخدم الصورة الرسمية من n8n
+FROM n8nio/n8n:latest
 
-# إعداد البيئة (إلزامي لتشغيل n8n على Render)
+# إعداد متغيرات البيئة
 ENV N8N_BASIC_AUTH_ACTIVE=true
 ENV N8N_BASIC_AUTH_USER=admin
 ENV N8N_BASIC_AUTH_PASSWORD=admin123
@@ -11,9 +11,11 @@ ENV N8N_PORT=5678
 ENV NODE_ENV=production
 ENV TZ=Asia/Amman
 
-# تعيين المنفذ
+# المنفذ المستخدم
 EXPOSE 5678
 
-# تشغيل التطبيق
-CMD ["n8n"]
+# اجعل مجلد العمل هو /home/node/.n8n
+WORKDIR /home/node/.n8n
 
+# شغل التطبيق مباشرة باستخدام n8n
+ENTRYPOINT ["n8n"]
