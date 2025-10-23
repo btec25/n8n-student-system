@@ -15,5 +15,5 @@ ENV TZ=Asia/Amman
 EXPOSE 5678
 
 # تشغيل التطبيق
-CMD ["tini", "--", "n8n"]
+CMD ["n8n"]
 
